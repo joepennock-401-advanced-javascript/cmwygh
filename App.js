@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import SafeContact from './components/contacts.js';
+
 export default function App() {
+
+  const [safeContact, setSafeContact] = useState('');
+
+  function getContact(data) {
+    setSafeContact(data);
+    console.log(safeContact);
+  };
+  console.log(safeContact);
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <SafeContact get={getContact} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#6b6b6b',
     alignItems: 'center',
     justifyContent: 'center',
   },
